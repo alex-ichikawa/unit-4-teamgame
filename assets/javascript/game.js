@@ -78,7 +78,7 @@ let deadpool = {
     "maxHitPoints": 500,
     "healing": true,
     "healPoints": 100,
-    "healCounter": 8,
+    "healCounter": 5,
     "maxHeals": 8,
     "attack": [75, 78, 79, 80, 81, 82, 85, 100],
     "counterAttack": [70, 73, 75, 80, 95, 100],
@@ -101,7 +101,7 @@ let wolverine = {
     "maxHitPoints": 550,
     "healing": true,
     "healPoints": 100,
-    "healCounter": 5,
+    "healCounter": 3,
     "maxHeals": 5,
     "attack": [75, 80, 100, 105, 110, 115],
     "counterAttack": [70, 75, 80, 95, 100],
@@ -142,7 +142,7 @@ let ironMan ={
     "hitPoints": 600,
     "maxHitPoints": 600,
     "healing": false,
-    "attack": [90, 100, 110, 150],
+    "attack": [80, 85, 90, 100, 110, 120],
     "counterAttack": [80, 95, 100, 110],
     "pic": '<img src = "assets/images/ironManProfile.jpg">',
     "specialMove": "Proton Cannon",
@@ -394,7 +394,7 @@ $("#p4Pic").on("click", function () {
 
 //defender auto heals when health is below 50 and above 0
 function healCheck() {
-    if (enemyAttacked["healing"] === true && enemyAttacked["hitPoints"] < 75 && enemyAttacked["healCounter"] > 0 && enemyAttacked["hitPoints"] > 0) {
+    if (enemyAttacked["healing"] === true && enemyAttacked["hitPoints"] < 151 && enemyAttacked["healCounter"] > 0 && enemyAttacked["hitPoints"] > 0) {
         enemyAttacked["hitPoints"] = enemyAttacked["hitPoints"] + enemyAttacked["healPoints"];
         document.getElementsByClassName(`hp combatant ${enemyAttacked["name"]}`)[0].innerHTML = `HP: ${enemyAttacked["hitPoints"]}`;
         document.getElementById("combatText2").textContent = `${enemyAttacked["name"]} used their super heaing and healed ${enemyAttacked["healPoints"]} hit points!`;
