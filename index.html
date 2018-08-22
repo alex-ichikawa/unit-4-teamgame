@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>RPG Game</title>
+</head>
+
+<body>
+
+    <div class="row" id="startCenter">
+        <div class="col-md-6 col-md-offset-3">
+            <button class="btn-lg btn-warning" id="start">Start</button>
+        </div>
+    </div>
+
+    <header id="header">
+        <h2 id="chooseTitle">Choose your character</h2>
+    </header>
+
+    <div class="container top-row" id="top-row">
+
+        <div class="row" id="charRow">
+            <div class="col-3 text-center" id="p1">
+                <div class="name" id="p1Name"></div>
+                <div class="pic" id="p1Pic"></div>
+                <div class="hp" id="p1HP"></div>
+            </div>
+            <div class="col-3 text-center" id="p2">
+                <div class="name" id="p2Name"></div>
+                <div class="pic" id="p2Pic"></div>
+                <div class="hp" id="p2HP"></div>
+            </div>
+            <div class="col-3 text-center" id="p3">
+                <div class="name" id="p3Name"></div>
+                <div class="pic" id="p3Pic"></div>
+                <div class="hp" id="p3HP"></div>
+            </div>
+            <div class="col-3 text-center" id="p4">
+                <div class="name" id="p4Name"></div>
+                <div class="pic" id="p4Pic"></div>
+                <div class="hp" id="p4HP"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="defender-row">
+        <h2 id="defenderTitle">Choose your opponent</h2>
+        <div class="row">
+            <div class="col-3 text-center">
+                <div class="name" id="defender1Name"></div>
+                <div class="pic" id="defender1Profile"></div>
+                <div class="hp" id="defender1HitPoints"></div>
+            </div>
+            <div class="col-3 text-center">
+                <div class="name" id="defender2Name"></div>
+                <div class="pic" id="defender2Profile"></div>
+                <div class="hp" id="defender2HitPoints"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="combat-row">
+        <h2 id="combatTitle"></h2>
+        <div class="row" id="combatant-row">
+            <div class="col-3 text-center combatant" id="combatant">
+                <div class="name combatant" id="combatName"></div>
+                <div class="pic combatant" id="combatProfile"></div>
+                <div class="hp combatant" id="combatHitPoints"></div>
+                <div class="row" id="attackBut">
+                    <h4 id="attack1But"></h4>
+                    <div class="col-1">
+                        <button class="actButn attack" id="attack">Attack</button>
+                    </div>
+                    <div class="col-1">
+                        <button class="actButn special" id="special">Special</button>
+                    </div>
+                    <div class="col-1">
+                        <button class="actButn heal" id="heal">Heal</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 text-center combatant" id="combatant2">
+                <div class="name combatant" id="combatName2"></div>
+                <div class="pic combatant" id="combatProfile2"></div>
+                <div class="hp combatant" id="combatHitPoints2"></div>
+                <div class="row" id="attackBut2">
+                    <h4 id="attack2But"></h4>
+                    <div class="col-1">
+                        <button class="actButn attack" id="attack2">Attack</button>
+                    </div>
+                    <div class="col-1">
+                        <button class="actButn special" id="special2">Special</button>
+                    </div>
+                    <div class="col-1">
+                        <button class="actButn heal" id="heal2">Heal</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="text-row">
+            <div id="combatText1"></div>
+            <div id="combatText3"></div>
+            <div id="combatText2"></div>
+            <button id="playAgain">Play Again</button>
+        </div>
+    </div>
+
+    <script src="assets/javascript/game.js"></script>
+</body>
+
+</html>.

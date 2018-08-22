@@ -1,0 +1,81 @@
+#startCenter {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+}
+
+.container {
+    margin-left: 25px;
+    margin-bottom: 50px;
+}
+
+.name,
+.hp,
+.pic {
+    background-color: #ffffff;
+    border-style: solid;
+    border-color: black;
+    border-width: 0px 2px 0px 2px;
+}
+
+.name,
+.hp {
+    font-weight: bold;
+}
+
+.name {
+    border-top: solid black 2px;
+}
+
+.hp {
+    border-bottom: solid black 2px;
+}
+
+button {
+    margin-top: 20px;
+}
+
+.col-3 {
+    min-height: 250px;
+    min-width: 250px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#chooseTitle,
+#defenderTitle,
+#combatTitle,
+#combatText1,
+#combatText2,
+#combatText3 {
+    color: #ffffff;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
+.selected {
+    background-color: red;
+    border-style: solid;
+    border-color: black;
+    border-width: 0px 2px 0px 2px;
+ }
+
+.name.selected {
+    border-top: solid black 2px;
+}
+
+.hp.selected {
+    border-bottom: solid black 2px;
+}
+
+.actButn {
+    margin-left: 10px;
+    min-width: 180px;
+}
