@@ -561,7 +561,6 @@ function enemyToAttack() {
     enemyAttacked["hitPoints"] = enemyAttacked["hitPoints"] - yourAttack;
     document.getElementsByClassName(`hp combatant ${enemyAttacked["name"]}`)[0].innerHTML = `HP: ${enemyAttacked["hitPoints"]}`;
     document.getElementById('combatText1').textContent = `You attacked ${enemyAttacked["name"]} for ${yourAttack} damage`;
-    document.getElementById('combatText1').textContent = `Select enemy to attack`;
     healCheck();
     };
 };
@@ -582,6 +581,7 @@ function specialAttack() {
 
 //attack button player 1
 $("#attack").on("click", function () {
+    document.getElementById('combatText1').textContent = `Select enemy to attack`;
     $("#combatText2").empty();
     $("#combatText3").empty();
     attacking = attacker;
@@ -589,6 +589,7 @@ $("#attack").on("click", function () {
 
 //attack button player 2
 $("#attack2").on("click", function () {
+    document.getElementById('combatText1').textContent = `Select enemy to attack`;
      $("#combatText2").empty();
      $("#combatText3").empty();
      attacking = attacker2;
@@ -599,11 +600,15 @@ $("#attack2").on("click", function () {
 $("#special").on("click", function () {
     attacking = attacker;
     if (attacking["specialCounter"] > 0) {
+        document.getElementById('combatText1').textContent = `Select enemy to attack`;
         $("#combatText2").empty();
         $("#combatText3").empty();
         specialSelected = true;
     } else {
+        $("#combatText2").empty();
+        $("#combatText3").empty();
         attacking = [];
+        document.getElementById('combatText1').textContent = `You have no more special left`;
     };
 });
 
@@ -611,11 +616,15 @@ $("#special").on("click", function () {
 $("#special2").on("click", function () {
     attacking = attacker2;
     if (attacking["specialCounter"] > 0) {
+        document.getElementById('combatText1').textContent = `Select enemy to attack`;
         $("#combatText2").empty();
         $("#combatText3").empty();
         specialSelected = true;
     } else {
+        $("#combatText2").empty();
+        $("#combatText3").empty();
         attacking = [];
+        document.getElementById('combatText1').textContent = `You have no more special left`;
     };
 });
 
