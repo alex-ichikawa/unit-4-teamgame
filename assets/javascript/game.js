@@ -316,6 +316,7 @@ combatRowSetup();
 //character slection function
 function charSelect() {
     if (charChosen === false) {
+        clicked["selectAudio"].play();
         charChosen = true;
         attacker = clicked;
         clicked["choice1"] = true;
@@ -329,6 +330,7 @@ function charSelect() {
         document.getElementsByClassName("hp selected")[0].className = "hp";
         
     } else if (charChosen === true && charChosen2 === false && attacker["choice1"] === true && clickName != attacker["name"]) {
+        clicked["selectAudio"].play();
         charChosen2 = true;
         attacker2 = clicked;
         clicked["choice2"] = true;
@@ -347,7 +349,6 @@ function charSelect() {
 //Character selection
 $("#p1Pic").on("click", function () {
     if (charChosen2 === false) {
-        deadpool["selectAudio"].play();
         clickName = deadpool["name"];
         clicked = deadpool;
         document.getElementById("p1Name").className = "name selected"; //add class for css to highlight selected
@@ -359,7 +360,6 @@ $("#p1Pic").on("click", function () {
 
 $("#p2Pic").on("click", function () {
     if (charChosen2 === false) {
-        wolverine["selectAudio"].play();;
         clickName = wolverine["name"];
         clicked = wolverine;
         document.getElementById("p2Name").className = "name selected"; //add class for css to highlight selected
@@ -370,7 +370,6 @@ $("#p2Pic").on("click", function () {
 
 $("#p3Pic").on("click", function () {
     if (charChosen2 === false) {
-        hulk["selectAudio"].play();
         clickName = hulk["name"];
         clicked = hulk;
         document.getElementById("p3Name").className = "name selected"; //add class for css to highlight selected
@@ -381,7 +380,6 @@ $("#p3Pic").on("click", function () {
 
 $("#p4Pic").on("click", function () {
     if (charChosen2 === false) {
-        ironMan["selectAudio"].play();
         clickName = ironMan["name"];
         clicked = ironMan;
         document.getElementById("p4Name").className = "name selected"; //add class for css to highlight selected
