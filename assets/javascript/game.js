@@ -563,7 +563,6 @@ function winLose() {
         enemyAttacked = [];
         attacking = [];
     } else if (attacking["hitPoints"] <= 0 && lossCounter === 1) {
-        console.log("you lose");
         attacking["loseAudio"].play();
         document.getElementById("chooseTitle").textContent = "You Lose!";
         document.getElementById("combatant-row").style.display = 'none';
@@ -689,9 +688,9 @@ $("#playAgain").on("click", function () {
     wolverine["healCounter"] = wolverine["maxHeals"];
     wolverine["specialCounter"] = 1;
     hulk["hitPoints"] = hulk["maxHitPoints"];
-    hulk["specialCounter"] = 1;
+    hulk["specialCounter"] = 2;
     ironMan["hitPoints"] = ironMan["maxHitPoints"];
-    ironMan["specialCounter"] = 1;
+    ironMan["specialCounter"] = 2;
     attacker = [];
     attacker2 = [];
     combatant1 = [];
