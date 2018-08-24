@@ -205,6 +205,8 @@ function startGame() {
     document.getElementById("p2").style.visibility = 'visible';
     document.getElementById("p3").style.visibility = 'visible';
     document.getElementById("p4").style.visibility = 'visible';
+    document.getElementById("p1").style.display = 'block';
+    document.getElementById("p2").style.display = 'block';
     document.getElementById("p1Name").innerHTML = deadpool["name"];
     document.getElementById("p1Pic").innerHTML = deadpool["pic"];
     document.getElementById("p1HP").innerHTML = `HP: ${deadpool["hitPoints"]}`;
@@ -257,16 +259,36 @@ function combatRowSetup() {
     document.getElementById("p4").style.display = 'block';
     if (attacker["healing"] === false) {
         document.getElementById("heal").style.display = 'none';
+        document.getElementById("special").style.visibility = 'visible'
+        document.getElementById("attack").style.visibility = 'visible'
+        document.getElementById("special").style.display = 'block';
+        document.getElementById("attack").style.display = 'block';
         document.getElementById("special").textContent = `${attacker["specialMove"]}: ${attacker["specialCounter"]}`;
     } else {
         document.getElementById("heal").textContent = `Heal: ${attacker["healCounter"]}`;
+        document.getElementById("special").style.visibility = 'visible'
+        document.getElementById("attack").style.visibility = 'visible'
+        document.getElementById("heal").style.visibility = 'visible'
+        document.getElementById("special").style.display = 'block';
+        document.getElementById("attack").style.display = 'block';
+        document.getElementById("heal").style.display = 'block';
         document.getElementById("special").textContent = `${attacker["specialMove"]}: ${attacker["specialCounter"]}`;
     };
     if (attacker2["healing"] === false) {
         document.getElementById("heal2").style.display = 'none';
+        document.getElementById("special2").style.visibility = 'visible'
+        document.getElementById("attack2").style.visibility = 'visible'
+        document.getElementById("special2").style.display = 'block';
+        document.getElementById("attack2").style.display = 'block';
         document.getElementById("special2").textContent = `${attacker2["specialMove"]}: ${attacker2["specialCounter"]}`;
     } else {
         document.getElementById("heal2").textContent = `Heal: ${attacker2["healCounter"]}`;
+        document.getElementById("special2").style.visibility = 'visible'
+        document.getElementById("attack2").style.visibility = 'visible'
+        document.getElementById("heal2").style.visibility = 'visible'
+        document.getElementById("special2").style.display = 'block';
+        document.getElementById("attack2").style.display = 'block';
+        document.getElementById("heal2").style.display = 'block';
         document.getElementById("special2").textContent = `${attacker2["specialMove"]}: ${attacker2["specialCounter"]}`;
     };
 
@@ -397,8 +419,36 @@ function healCheck() {
         document.getElementsByClassName(`hp combatant ${enemyAttacked["name"]}`)[0].innerHTML = `HP: ${enemyAttacked["hitPoints"]}`;
         document.getElementById("combatText2").textContent = `${enemyAttacked["name"]} used their super heaing and healed ${enemyAttacked["healPoints"]} hit points!`;
         enemyAttacked["healCounter"]--;
+        counterChoose();
+       // counterAttack();
+    } else {counterChoose();
+       // counterAttack();
+        
+    };
+};
+
+//combatant to choose which attcker to attack, most damaged attacker gets a higher chance
+function counterChoose() {
+    if (attacker["maxHitPoints"] - attacker["hitPoints"] === 0 && attacker2["maxHitPoints"] - attacker2["hitPoints"] === 0) {
         counterAttack();
-    } else counterAttack();
+    } else if (attacker["hitPoints"] <= 0) {
+        counterAttack();
+    } else if (attacker2["hitPoints"] <= 0) {
+        counterAttack();
+    } else if ((attacker["maxHitPoints"] - attacker["hitPoints"]) > (attacker2["maxHitPoints"] - attacker2["hitPoints"])) {
+        let attackChance = [0, 2, 3, 5, 8, 9];
+        let attackchoice = Math.floor(Math.random() * 10);
+        if (attackChance.indexOf(attackchoice) > -1) {
+            attacking = attacker;
+            counterAttack();
+        } else {
+            attacking = attacker2;
+            counterAttack();
+        };
+    } else {
+        counterAttack();
+    }
+
 };
 
 //computer counter attack 
@@ -509,6 +559,8 @@ function winLose() {
         document.getElementsByClassName(`actButn special ${attacking["name"]}`)[0].style.visibility = 'hidden';
         document.getElementsByClassName(`actButn heal ${attacking["name"]}`)[0].style.visibility = 'hidden';
         lossCounter++;
+        enemyAttacked = [];
+        attacking = [];
     } else if (attacking["hitPoints"] <= 0 && lossCounter === 1) {
         console.log("you lose");
         attacking["loseAudio"].play();
