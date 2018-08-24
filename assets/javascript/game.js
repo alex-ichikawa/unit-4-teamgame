@@ -137,7 +137,7 @@ let hulk = {
     "choice2": false,
 };
 
-let ironMan ={
+let ironMan = {
     "name": "Iron Man",
     "hitPoints": 600,
     "maxHitPoints": 600,
@@ -199,7 +199,7 @@ title();
 //Sets up the DOM for game start
 function startGame() {
 
-    
+
     startSound.play();
     document.getElementById("p1").style.visibility = 'visible';
     document.getElementById("p2").style.visibility = 'visible';
@@ -232,7 +232,7 @@ function startGame() {
 };
 
 //click to start game
-$("#start").on("click", function() {
+$("#start").on("click", function () {
     startGame();
 });
 
@@ -330,9 +330,9 @@ function charRowSetup() {
 
 //combatant selection
 function defenderSelection() {
-combatant1 = charArray[0];
-combatant2 = charArray[1];
-combatRowSetup();
+    combatant1 = charArray[0];
+    combatant2 = charArray[1];
+    combatRowSetup();
 };
 
 //character slection function
@@ -350,7 +350,7 @@ function charSelect() {
         clickName = [];
         document.getElementsByClassName("name selected")[0].className = "name";
         document.getElementsByClassName("hp selected")[0].className = "hp";
-        
+
     } else if (charChosen === true && charChosen2 === false && attacker["choice1"] === true && clickName != attacker["name"]) {
         clicked["selectAudio"].play();
         charChosen2 = true;
@@ -420,10 +420,11 @@ function healCheck() {
         document.getElementById("combatText2").textContent = `${enemyAttacked["name"]} used their super heaing and healed ${enemyAttacked["healPoints"]} hit points!`;
         enemyAttacked["healCounter"]--;
         counterChoose();
-       // counterAttack();
-    } else {counterChoose();
-       // counterAttack();
-        
+        // counterAttack();
+    } else {
+        counterChoose();
+        // counterAttack();
+
     };
 };
 
@@ -447,7 +448,7 @@ function counterChoose() {
         };
     } else {
         counterAttack();
-    }
+    };
 
 };
 
@@ -584,10 +585,10 @@ function winLose() {
 };
 
 //enemy 1 to attack
-$("#combatProfile").on("click", function() {
+$("#combatProfile").on("click", function () {
     if (specialSelected === false) {
-    enemyAttacked = combatant1
-    enemyToAttack();
+        enemyAttacked = combatant1
+        enemyToAttack();
     } else {
         enemyAttacked = combatant1
         specialAttack();
@@ -595,10 +596,10 @@ $("#combatProfile").on("click", function() {
 });
 
 //enemy 2 to attack
-$("#combatProfile2").on("click", function() {
+$("#combatProfile2").on("click", function () {
     if (specialSelected === false) {
-    enemyAttacked = combatant2;
-    enemyToAttack();
+        enemyAttacked = combatant2;
+        enemyToAttack();
     } else {
         enemyAttacked = combatant2;
         specialAttack();
@@ -608,12 +609,12 @@ $("#combatProfile2").on("click", function() {
 //enemy attack selection
 function enemyToAttack() {
     if (attacking != '') {
-    punches[(Math.floor(Math.random() * punches.length))].play();
-    let yourAttack = attacking["attack"][Math.floor(Math.random() * attacking.attack.length)];
-    enemyAttacked["hitPoints"] = enemyAttacked["hitPoints"] - yourAttack;
-    document.getElementsByClassName(`hp combatant ${enemyAttacked["name"]}`)[0].innerHTML = `HP: ${enemyAttacked["hitPoints"]}`;
-    document.getElementById('combatText1').textContent = `You attacked ${enemyAttacked["name"]} for ${yourAttack} damage`;
-    healCheck();
+        punches[(Math.floor(Math.random() * punches.length))].play();
+        let yourAttack = attacking["attack"][Math.floor(Math.random() * attacking.attack.length)];
+        enemyAttacked["hitPoints"] = enemyAttacked["hitPoints"] - yourAttack;
+        document.getElementsByClassName(`hp combatant ${enemyAttacked["name"]}`)[0].innerHTML = `HP: ${enemyAttacked["hitPoints"]}`;
+        document.getElementById('combatText1').textContent = `You attacked ${enemyAttacked["name"]} for ${yourAttack} damage`;
+        healCheck();
     };
 };
 
@@ -642,10 +643,10 @@ $("#attack").on("click", function () {
 //attack button player 2
 $("#attack2").on("click", function () {
     document.getElementById('combatText1').textContent = `Select enemy to attack`;
-     $("#combatText2").empty();
-     $("#combatText3").empty();
-     attacking = attacker2;
- });
+    $("#combatText2").empty();
+    $("#combatText3").empty();
+    attacking = attacker2;
+});
 
 
 //special player 1
@@ -687,9 +688,9 @@ $("#playAgain").on("click", function () {
     wolverine["hitPoints"] = wolverine["maxHitPoints"];
     wolverine["healCounter"] = wolverine["maxHeals"];
     wolverine["specialCounter"] = 1;
-    hulk["hitPoints"] = hulk["maxHitPoints"];   
+    hulk["hitPoints"] = hulk["maxHitPoints"];
     hulk["specialCounter"] = 1;
-    ironMan["hitPoints"] = ironMan["maxHitPoints"];   
+    ironMan["hitPoints"] = ironMan["maxHitPoints"];
     ironMan["specialCounter"] = 1;
     attacker = [];
     attacker2 = [];
