@@ -85,7 +85,7 @@ let deadpool = {
     "pic": '<img src = "assets/images/deadpoolProfile.jpg">',
     "specialMove": "Katana-Rama",
     "specialCounter": 1,
-    "specialDamage": 150,
+    "specialDamage": 130,
     "selectAudio": deadSelect,
     "specialAudio": deadSpecial,
     "loseAudio": deadLose,
@@ -108,7 +108,7 @@ let wolverine = {
     "pic": '<img src = "assets/images/wolverineProfile.jpg">',
     "specialMove": "Berserker Barrage",
     "specialCounter": 1,
-    "specialDamage": 200,
+    "specialDamage": 140,
     "selectAudio": wolverineSelect,
     "specialAudio": wolverineSpecial,
     "loseAudio": wolverineLose,
@@ -128,7 +128,7 @@ let hulk = {
     "pic": '<img src = "assets/images/hulkProfile.jpg">',
     "specialMove": "Hulk Smash",
     "specialCounter": 2,
-    "specialDamage": 225,
+    "specialDamage": 200,
     "selectAudio": hulkSelect,
     "specialAudio": hulkSpecial,
     "loseAudio": hulkLose,
@@ -147,7 +147,7 @@ let ironMan = {
     "pic": '<img src = "assets/images/ironManProfile.jpg">',
     "specialMove": "Proton Cannon",
     "specialCounter": 2,
-    "specialDamage": 200,
+    "specialDamage": 175,
     "selectAudio": ironManSelect,
     "specialAudio": ironManSpecial,
     "loseAudio": ironManLose,
@@ -446,9 +446,20 @@ function counterChoose() {
             attacking = attacker2;
             counterAttack();
         };
-    } else {
+    } else if ((attacker2["maxHitPoints"] - attacker2["hitPoints"]) > (attacker["maxHitPoints"] - attacker["hitPoints"])) {
+        let attackChance = [0, 2, 3, 5, 8, 9];
+        let attackchoice = Math.floor(Math.random() * 10);
+        if (attackChance.indexOf(attackchoice) > -1) {
+            attacking = attacker2;
+            counterAttack();
+        } else {
+            attacking = attacker;
+            counterAttack();
+        };
+       
+    }else {
         counterAttack();
-    };
+    }
 
 };
 
@@ -549,6 +560,7 @@ function winLose() {
         document.getElementById("chooseTitle").style.display = 'none';
         document.getElementById("combatant2").style.display = 'none';
         document.getElementById("chooseTitle").style.display = 'none';
+        document.getElementById("combatTitle").style.display = 'block';
         document.getElementById("combatTitle").textContent = "You Win!";
         document.getElementById("playAgain").style.display = 'block';
         enemyAttacked = [];
